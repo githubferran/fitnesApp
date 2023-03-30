@@ -1,17 +1,33 @@
+// const element = document.createElement('h1');
+// element.innerHTML = "Hello world";
+// const container = document.getElementById('root');
+// container.appendChild(element);
+
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const user = {
+  firsName : "Ferran",
+  lastName : "Jassé"
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+function getFullName(user){
+  return `${user.firsName} ${user.lastName}`
+}
+
+function getGreating(user){
+  if(user){
+    return <h1>Hello {getFullName(user)}, welcome to React</h1>
+  }
+  return <h1>Hello Strange</h1>
+}
+
+const name = "Ferran";
+
+const element =  <div>{getGreating(user)}</div>
+const container = document.getElementById('root');
+
+ReactDOM.render(element, container);
+
+
+
